@@ -1,14 +1,3 @@
-"""
-logic.py
---------
-Business logic for the RTV (Return To Vendor) report tool.
-This file contains no UI code.
-
-The tool works with one movement file per run:
-    Outward - stock sent to a store (Safety Days apply, goods are in transit)
-    Inward  - stock received at a store (no Safety Days)
-plus one Current Stock file per store.
-"""
 
 import csv
 import io
