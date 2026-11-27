@@ -1,0 +1,50 @@
+UPLOAD GUIDE
+
+Upload one movement file (Outward or Inward) and the Current Stock.
+Files: .xlsx or .csv, data on the first sheet, headers in row 1.
+Extra columns are ignored. Header case and spaces do not matter.
+
+FILE               REQUIRED COLUMNS
+Outward            Pos, Article, Color, Size, Outward On
+Inward             store name, article, color, size, inwardedon
+Current Stock      Article, Color, Size, Qty   (Pos is optional, see below)
+Sale (optional)    Store, Article, Color, then one column per size
+
+CURRENT STOCK - choose one way
+1. One file per store, no Pos column. Name the file like the store
+   (MH PUNE.xlsx) to match it automatically, or pick the store.
+2. One file for all stores with a Pos (or store name) column.
+   Store names are matched automatically. Pick the store for any name
+   that does not match, or Skip it.
+Do not mix the two ways.
+
+SALE FILE (optional, RTV Report only)
+One file for all stores. One row per Store, Article, Color and one
+column per size (S, M, L, 70 X 100 ...). A title row above the headers
+is fine. Total, Soh, Mrp and similar columns are ignored.
+Any size that sold (quantity above 0) is kept out of the RTV list, even
+if the stock is old. Export the sales for the period you want to protect,
+for example the last 30 days. "Sale cutoff days" is only a reminder.
+Store names are matched like the stock files; unmatched ones are listed.
+
+DATES
+Day first: 15-04-2026, 15-04-26, 15/04/2026, 2026-04-15, Excel dates.
+A row with an unreadable date is skipped.
+
+SETTINGS
+Report date    Age is counted up to this date.
+RTV age        Days an item must be idle to be returned.
+Safety days    Outward only. Extra days for goods in transit.
+Sale cutoff    Reminder only. Not used in any calculation.
+Cutoff         RTV age + safety days. It cannot be more than the
+               days of history in the movement file.
+
+REPORTS (choose in the sidebar)
+RTV Report     Items last moved cutoff days ago or more, or not in the
+               movement file (No Outward / No Inward), except items that
+               are selling. Shows the first date, last date and number
+               of records.
+Stock Age      All stock with its age in days and slab: 0-30, 31-60,
+               61-90, 91-180, 180+. An item not in the movement file
+               shows the file's days with a plus, like 25+, and
+               "Not in record".
